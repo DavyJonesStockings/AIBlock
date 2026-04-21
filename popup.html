@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIBlock</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap');
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0f0f11;
+      width: 260px;
+      min-height: 120px;
+    }
+
+    .popup {
+      padding: 16px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e8e6e0;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: #1a3a2a;
+      color: #4ade80;
+      border: 0.5px solid #2d5a3d;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+
+    .badge.off {
+      background: #2a1a1a;
+      color: #f87171;
+      border-color: #5a2d2d;
+    }
+
+    .divider {
+      height: 0.5px;
+      background: #2a2a30;
+      margin-bottom: 14px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .row-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .row-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #c8c6c0;
+    }
+
+    .row-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: #666;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Toggle switch */
+    .toggle {
+      flex-shrink: 0;
+      position: relative;
+      width: 44px;
+      height: 24px;
+      border-radius: 12px;
+      border: 0.5px solid #3a3a44;
+      background: #1e1e24;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.25s, border-color 0.25s;
+      outline: none;
+    }
+
+    .toggle[aria-pressed="true"] {
+      background: #166534;
+      border-color: #22c55e55;
+    }
+
+    .toggle:focus-visible {
+      box-shadow: 0 0 0 2px #4ade8066;
+    }
+
+    .knob {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #555;
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.22s;
+    }
+
+    .toggle[aria-pressed="true"] .knob {
+      transform: translateX(20px);
+      background: #4ade80;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="popup">
+    <div class="header">
+      <span class="title">AIBlock</span>
+      <div class="badge" id="badge">ON</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+      <div class="row-info">
+        <span class="row-label">Hide overview</span>
+      </div>
+      <button class="toggle" id="toggle" aria-pressed="true" aria-label="Toggle element hiding">
+        <span class="knob"></span>
+      </button>
+    </div>
+  </div>
+  <script src="popup/popup.js"></script>
+</body>
+
+</html>

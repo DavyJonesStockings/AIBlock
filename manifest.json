@@ -4,11 +4,11 @@
     "version": "1.0",
     "manifest_version": 3,
     "action": {
-        "default_popup": "hello.html",
+        "default_popup": "popup.html",
         "default_icon": "images/image.png"
     },
     "permissions": [
-        "activeTab"
+        "activeTab", "tabs", "storage"
     ],
     "content_scripts": [
         {
