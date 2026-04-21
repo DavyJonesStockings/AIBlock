@@ -1,19 +1,27 @@
 {
-  "name": "AIBlock",
-  "description": "Block AI overviews",
-  "version": "1.0",
-  "manifest_version": 3,
-  "action": {
-    "default_popup": "hello.html",
-    "default_icon": "images/image.png"
-  },
-  "content_scripts": [
-    {
-      "js": ["scripts/content.js"],
-      "matches": [
-        "https://developer.chrome.com/docs/extensions/*",
-        "https://developer.chrome.com/docs/webstore/*"
-      ]
+    "name": "AIBlock",
+    "description": "Block AI overviews",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "hello.html",
+        "default_icon": "images/image.png"
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "run_at": "document_start",
+            "js": [
+                "scripts/content.js"
+            ],
+            "matches": [
+                "*://www.google.com/search*"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
     }
-  ]
 }
